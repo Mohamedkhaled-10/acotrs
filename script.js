@@ -71,10 +71,15 @@ function showDetails(id) {
     }
     <p>عدد الجوائز: ${actor.awards}</p>
     ${
-      actor.website
-        ? `<p>رابط الموقع الرسمي: <a href="${actor.website}" target="_blank" rel="noopener">${actor.website}</a></p>`
-        : ""
-    }
+  actor.website
+    ? `<p>رابط الموقع الرسمي: 
+         <a href="${actor.website}" target="_blank" rel="noopener" title="الموقع الرسمي">
+           <img src="images/website-logo.png" alt="Logo" style="height:24px; vertical-align:middle;" />
+         </a>
+       </p>`
+    : ""
+}
+
     ${
       actor.gallery && actor.gallery.length > 0
         ? `
