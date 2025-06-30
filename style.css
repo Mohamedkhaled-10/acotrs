@@ -245,3 +245,8 @@ button.details-btn:hover {
 .gallery-img:hover {
   border-color: #2563eb;
 }
+element.style {
+    height: 50px;
+    width: fit-content;
+    vertical-align: middle;
+}
