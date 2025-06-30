@@ -1,160 +1,200 @@
+/* Reset بسيط */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", "Helvetica Neue", Helvetica, sans-serif;
+  color: #333;
+}
+
 body {
-  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
-  color: #eee;
+  background: #f9f9f9;
+  color: #333;
   min-height: 100vh;
-  padding: 20px 15px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  scroll-behavior: smooth;
-  user-select: none;
+  padding: 30px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 header h1 {
-  color: #4caf50;
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-shadow: 0 0 6px #4caf50aa;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #222;
+  letter-spacing: 1px;
 }
 
 #searchInput {
-  border: 2px solid #4caf50;
-  background: #121212;
-  color: #eee;
-  box-shadow: inset 0 0 5px #4caf50aa;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  background-color: #fff;
+  color: #333;
 }
 
 #searchInput:focus {
+  border-color: #00529b;
   outline: none;
-  border-color: #80e27e;
-  box-shadow: 0 0 8px #80e27e;
+  box-shadow: 0 0 5px rgba(0,82,155,0.4);
+}
+
+#actorsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+  gap: 25px;
 }
 
 .actor-card {
-  background: #222;
-  border-radius: 20px;
+  background: #fff;
+  border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 0 15px #4caf50cc;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
 }
 
 .actor-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 0 25px #80e27ecc;
+  box-shadow: 0 4px 14px rgba(0,82,155,0.2);
 }
 
 .actor-card img {
-  border-radius: 15px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
   margin-bottom: 15px;
-  transition: transform 0.3s ease;
-}
-
-.actor-card:hover img {
-  transform: scale(1.05);
+  border: 1px solid #ddd;
 }
 
 .actor-card h3 {
-  color: #80e27e;
-  font-weight: 700;
+  font-size: 1.3rem;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.actor-card h3 i {
-  color: #4caf50;
-  font-size: 1.2rem;
+  font-weight: 600;
+  color: #00529b;
 }
 
 .actor-card p {
-  color: #ccc;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #555;
   height: 50px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 12px;
 }
 
 button.details-btn {
-  background: linear-gradient(90deg, #4caf50, #80e27e);
+  background-color: #00529b;
   border: none;
-  padding: 10px 0;
-  color: #121212;
-  border-radius: 15px;
-  font-weight: 700;
-  font-size: 1.1rem;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1rem;
   cursor: pointer;
   width: 100%;
-  box-shadow: 0 4px 10px #4caf5077;
-  transition: background 0.4s ease;
+  transition: background-color 0.3s ease;
 }
 
 button.details-btn:hover {
-  background: linear-gradient(90deg, #80e27e, #4caf50);
-  box-shadow: 0 6px 18px #80e27e99;
+  background-color: #003d6b;
 }
 
-/* Modal */
+/* المودال */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(245, 245, 245, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
 .modal-content {
-  background: #1a1a1a;
-  padding: 30px 35px;
-  border-radius: 20px;
-  max-width: 750px;
-  width: 95%;
-  color: #eee;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  max-width: 720px;
+  width: 90%;
+  color: #222;
   position: relative;
   overflow-y: auto;
   max-height: 85vh;
-  box-shadow: 0 0 25px #4caf50aa;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .close-btn {
-  font-size: 2.5rem;
-  color: #80e27e;
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: 2.2rem;
+  cursor: pointer;
+  color: #00529b;
   transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #4caf50;
+  color: #003d6b;
 }
 
-/* إحصائيات */
-.stats-container {
-  margin-top: 25px;
+.modal-content h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #003d6b;
 }
 
-.stats-container h3 {
-  margin-bottom: 15px;
-  color: #80e27e;
-  letter-spacing: 1px;
+.modal-content img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
 }
 
-#statsChart {
-  max-width: 100%;
-  height: 250px;
+.modal-content video {
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
 }
 
-/* أيقونات المعلومات */
-.info-line {
-  margin: 8px 0;
+/* قائمة الأفلام */
+.movies-list {
+  margin-top: 20px;
+  list-style: disc inside;
+  padding-inline-start: 20px;
+  color: #444;
   font-size: 1rem;
-  color: #b0b0b0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  font-weight: 500;
 }
 
-.info-line i {
-  color: #4caf50;
-  font-size: 1.2rem;
+.movies-list li {
+  margin: 8px 0;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
+  #actorsContainer {
+    grid-template-columns: 1fr;
+  }
   .actor-card img {
     height: 150px;
+  }
+  .modal-content {
+    padding: 20px 25px;
+    max-width: 95%;
   }
 }
