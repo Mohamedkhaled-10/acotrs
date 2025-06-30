@@ -229,7 +229,10 @@ button.details-btn:hover {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 15px;
+  max-height: 160px; /* أو أي ارتفاع تريده */
+  overflow-y: auto; /* لو الصور كتير تقدر تعمل سكرول */
 }
+
 
 .gallery-img {
   width: 120px;
