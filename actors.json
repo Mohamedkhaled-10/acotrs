@@ -6,7 +6,8 @@
     "bio": "ممثل مصري مشهور بأدواره الكوميدية والدرامية.",
     "movies": ["بلبل حيران", "ظرف طارق"],
     "image": "images/ahmed_hamdy.jpg",
-    "video": "videos/ahmed_hamdy_intro.mp4"
+    "video": "videos/ahmed_hamdy_intro.mp4",
+    "awards": 5
   },
   {
     "id": "actor2",
@@ -15,6 +16,7 @@
     "bio": "ممثلة مصرية موهوبة قدمت العديد من الأفلام الناجحة.",
     "movies": ["البحث عن فضيحة", "سيد العاطفي"],
     "image": "images/menna_zaki.jpg",
-    "video": ""
+    "video": "",
+    "awards": 3
   }
 ]
