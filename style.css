@@ -1,167 +1,158 @@
-/* Reset بسيط */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
 body {
-  background: #121212;
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
   color: #eee;
   min-height: 100vh;
-  padding: 20px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 30px;
+  padding: 20px 15px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth;
+  user-select: none;
 }
 
 header h1 {
-  margin-bottom: 15px;
-  font-size: 2.5rem;
   color: #4caf50;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px #4caf50aa;
 }
 
 #searchInput {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px 15px;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 8px;
+  border: 2px solid #4caf50;
+  background: #121212;
+  color: #eee;
+  box-shadow: inset 0 0 5px #4caf50aa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#actorsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-  gap: 20px;
+#searchInput:focus {
+  outline: none;
+  border-color: #80e27e;
+  box-shadow: 0 0 8px #80e27e;
 }
 
 .actor-card {
-  background: #1e1e1e;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 0 10px #4caf50aa;
-  transition: transform 0.2s ease;
+  background: #222;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 15px #4caf50cc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
 .actor-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 0 25px #80e27ecc;
 }
 
 .actor-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 12px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.actor-card:hover img {
+  transform: scale(1.05);
 }
 
 .actor-card h3 {
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  color: #80e27e;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.actor-card h3 i {
   color: #4caf50;
+  font-size: 1.2rem;
 }
 
 .actor-card p {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  height: 40px;
+  color: #ccc;
+  font-size: 0.95rem;
+  height: 50px;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-bottom: 12px;
 }
 
 button.details-btn {
-  background: #4caf50;
+  background: linear-gradient(90deg, #4caf50, #80e27e);
   border: none;
-  padding: 8px 15px;
-  color: white;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: 10px 0;
+  color: #121212;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 1.1rem;
   cursor: pointer;
   width: 100%;
+  box-shadow: 0 4px 10px #4caf5077;
+  transition: background 0.4s ease;
 }
 
 button.details-btn:hover {
-  background: #388e3c;
+  background: linear-gradient(90deg, #80e27e, #4caf50);
+  box-shadow: 0 6px 18px #80e27e99;
 }
 
-/* المودال */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(18, 18, 18, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
-
-.hidden {
-  display: none;
-}
-
+/* Modal */
 .modal-content {
-  background: #222;
-  padding: 25px;
-  border-radius: 12px;
-  max-width: 700px;
-  width: 90%;
+  background: #1a1a1a;
+  padding: 30px 35px;
+  border-radius: 20px;
+  max-width: 750px;
+  width: 95%;
   color: #eee;
   position: relative;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 85vh;
+  box-shadow: 0 0 25px #4caf50aa;
 }
 
 .close-btn {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 2rem;
-  cursor: pointer;
+  font-size: 2.5rem;
+  color: #80e27e;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
   color: #4caf50;
 }
 
-.modal-content h2 {
+/* إحصائيات */
+.stats-container {
+  margin-top: 25px;
+}
+
+.stats-container h3 {
   margin-bottom: 15px;
+  color: #80e27e;
+  letter-spacing: 1px;
 }
 
-.modal-content img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+#statsChart {
+  max-width: 100%;
+  height: 250px;
 }
 
-.modal-content video {
-  width: 100%;
-  border-radius: 12px;
-  margin-top: 15px;
+/* أيقونات المعلومات */
+.info-line {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #b0b0b0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* قائمة الأفلام */
-.movies-list {
-  margin-top: 15px;
-  list-style: none;
-  padding-inline-start: 0;
+.info-line i {
+  color: #4caf50;
+  font-size: 1.2rem;
 }
 
-.movies-list li {
-  background: #4caf50;
-  margin: 6px 0;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-weight: bold;
-  color: #121212;
-}
-
+/* Responsive */
 @media (max-width: 600px) {
   .actor-card img {
     height: 150px;
