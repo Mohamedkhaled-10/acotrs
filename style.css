@@ -81,12 +81,11 @@ header h1 {
 
 .actor-card img {
   width: 100%;
-  height: px;
-  object-fit: contain; /* تعديل هنا */
+  height: 220px;  /* أكبر شوية عشان الصورة تظهر كاملة */
+  object-fit: cover; /* الصورة تملأ القالب بدون تشويه */
   border-radius: 10px;
   margin-bottom: 18px;
   border: 1px solid #334155; /* تدرج داكن */
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
 }
 
 .actor-card h3 {
@@ -177,12 +176,11 @@ button.details-btn:hover {
 
 .modal-content img {
   width: 100%;
-  max-height: px;
-  object-fit: contain; /* تعديل هنا */
+  max-height: 400px;
+  object-fit: cover; /* مملوءة وبدون تشويه */
   border-radius: 10px;
   margin-bottom: 28px;
   border: 1px solid #334155;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
 }
 
 .modal-content video {
@@ -207,22 +205,6 @@ button.details-btn:hover {
   line-height: 1.5;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  #actorsContainer {
-    grid-template-columns: 1fr;
-  }
-  
-  .actor-card img {
-    height: 160px;
-  }
-  
-  .modal-content {
-    padding: 20px 25px;
-    max-height: 90vh;
-  }
-}
-
 /* ألبوم الصور */
 .gallery {
   display: flex;
@@ -232,21 +214,46 @@ button.details-btn:hover {
 }
 
 .gallery-img {
-  width: 100px;
-  height: auto;
-  object-fit: contain; /* تعديل هنا */
+  width: 120px;  /* أكبر شوية عشان تظهر الصور أوضح */
+  height: 120px;
+  object-fit: cover; /* تملأ الصورة بدون تشويه */
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
 }
 
+/* لما تمرر الماوس على صورة الألبوم */
 .gallery-img:hover {
   border-color: #2563eb;
 }
-element.style {
-    height: 50px;
-    width: fit-content;
-    vertical-align: middle;
+
+/* Responsive لأحجام الهواتف */
+@media (max-width: 700px) {
+  #actorsContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .actor-card img {
+    height: 180px;  /* أصغر شوية عشان تناسب الشاشة */
+  }
+  
+  .modal-content {
+    padding: 20px 25px;
+    max-height: 90vh;
+    max-width: 95vw;
+  }
+  
+  .modal-content img {
+    max-height: 300px;
+  }
+  
+  .gallery-img {
+    width: 90px;
+    height: 90px;
+  }
+  
+  #searchInput {
+    max-width: 100%;
+  }
 }
