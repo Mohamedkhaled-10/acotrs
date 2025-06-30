@@ -81,7 +81,7 @@ header h1 {
 
 .actor-card img {
   width: 100%;
-  height: 180px;
+  height: px;
   object-fit: contain; /* تعديل هنا */
   border-radius: 10px;
   margin-bottom: 18px;
