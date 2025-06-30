@@ -82,11 +82,11 @@ header h1 {
 .actor-card img {
   width: 100%;
   height: 180px;
-  object-fit: contain; /* تعديل هنا */
+  object-fit: cover; /* يملأ الحاوية بدون فراغات */
   border-radius: 10px;
   margin-bottom: 18px;
   border: 1px solid #334155; /* تدرج داكن */
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  display: block;
 }
 
 .actor-card h3 {
@@ -178,11 +178,11 @@ button.details-btn:hover {
 .modal-content img {
   width: 100%;
   max-height: 320px;
-  object-fit: contain; /* تعديل هنا */
+  object-fit: cover; /* يملأ الحاوية */
   border-radius: 10px;
   margin-bottom: 28px;
   border: 1px solid #334155;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  display: block;
 }
 
 .modal-content video {
@@ -232,14 +232,14 @@ button.details-btn:hover {
 }
 
 .gallery-img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain; /* تعديل هنا */
+  width: 120px;
+  height: 120px;
+  object-fit: cover; /* يملأ الحاوية */
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  display: block;
 }
 
 .gallery-img:hover {
