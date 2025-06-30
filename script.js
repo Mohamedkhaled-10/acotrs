@@ -40,7 +40,7 @@ function displayActors(actors) {
     .join("");
 }
 
-// عرض تفاصيل الممثل في النافذة المنبثقة مع رسم إحصائيات
+// عرض تفاصيل الممثل في النافذة المنبثقة مع رسم إحصائيات وألبوم صور وروابط
 function showDetails(id) {
   const actor = actorsData.find((a) => a.id === id);
   if (!actor) return;
@@ -65,8 +65,29 @@ function showDetails(id) {
       actor.video
         ? `<video controls>
             <source src="${actor.video}" type="video/mp4" />
-            المتصفح لا يدعم عرض الفيديو.
+            متصفحك لا يدعم عرض الفيديو.
           </video>`
+        : ""
+    }
+    <p>عدد الجوائز: ${actor.awards}</p>
+    ${
+      actor.website
+        ? `<p>رابط الموقع الرسمي: <a href="${actor.website}" target="_blank" rel="noopener">${actor.website}</a></p>`
+        : ""
+    }
+    ${
+      actor.gallery && actor.gallery.length > 0
+        ? `
+      <h3>ألبوم الصور:</h3>
+      <div class="gallery">
+        ${actor.gallery
+          .map(
+            (img) =>
+              `<img src="${img}" alt="${actor.name}" class="gallery-img" />`
+          )
+          .join("")}
+      </div>
+    `
         : ""
     }
     <div class="stats-container">
@@ -77,7 +98,6 @@ function showDetails(id) {
 
   modal.classList.remove("hidden");
 
-  // إنشاء أو تحديث الرسم البياني
   createOrUpdateChart(stats);
 }
 
@@ -147,28 +167,3 @@ searchInput.addEventListener("input", () => {
 });
 
 loadActors();
-function showActorDetails(actor) {
-  const modalBody = document.getElementById("modalBody");
-  modalBody.innerHTML = `
-    <h2>${actor.name}</h2>
-    <img src="${actor.image}" alt="${actor.name}" />
-    <p>${actor.bio}</p>
-    <h3>الأفلام:</h3>
-    <ul class="movies-list">
-      ${actor.movies.map(movie => `<li>${movie}</li>`).join("")}
-    </ul>
-    ${actor.video ? `<video controls src="${actor.video}"></video>` : ""}
-    <p>عدد الجوائز: ${actor.awards}</p>
-    ${actor.website ? `<p>رابط الموقع الرسمي: <a href="${actor.website}" target="_blank" rel="noopener">${actor.website}</a></p>` : ""}
-    
-    ${actor.gallery && actor.gallery.length > 0 ? `
-      <h3>ألبوم الصور:</h3>
-      <div class="gallery">
-        ${actor.gallery.map(img => `<img src="${img}" alt="${actor.name}" class="gallery-img" />`).join("")}
-      </div>
-    ` : ""}
-  `;
-
-  // إظهار المودال
-  document.getElementById("modal").classList.remove("hidden");
-}
