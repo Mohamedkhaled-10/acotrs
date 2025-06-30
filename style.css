@@ -177,7 +177,7 @@ button.details-btn:hover {
 
 .modal-content img {
   width: 100%;
-  max-height: 320px;
+  max-height: px;
   object-fit: contain; /* تعديل هنا */
   border-radius: 10px;
   margin-bottom: 28px;
@@ -233,7 +233,7 @@ button.details-btn:hover {
 
 .gallery-img {
   width: 100px;
-  height: 100px;
+  height: auto;
   object-fit: contain; /* تعديل هنا */
   border-radius: 8px;
   cursor: pointer;
