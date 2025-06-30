@@ -5,8 +5,9 @@ const modalBody = document.getElementById("modalBody");
 const closeModalBtn = document.getElementById("closeModal");
 
 let actorsData = [];
+let statsChart = null;
 
-// تحميل بيانات الممثلين من ملف JSON
+// تحميل بيانات الممثلين
 async function loadActors() {
   try {
     const response = await fetch("actors.json");
@@ -18,7 +19,7 @@ async function loadActors() {
   }
 }
 
-// عرض قائمة الممثلين
+// عرض قائمة الممثلين مع أيقونة نجمة أمام الاسم
 function displayActors(actors) {
   if (actors.length === 0) {
     actorsContainer.innerHTML = "<p>لم يتم العثور على ممثلين.</p>";
@@ -30,25 +31,32 @@ function displayActors(actors) {
       (actor) => `
       <div class="actor-card" onclick="showDetails('${actor.id}')">
         <img src="${actor.image}" alt="${actor.name}" />
-        <h3>${actor.name}</h3>
+        <h3><i class="fas fa-user"></i> ${actor.name}</h3>
         <p>${actor.bio}</p>
-        <button class="details-btn">التفاصيل</button>
+        <button class="details-btn">التفاصيل <i class="fas fa-arrow-left"></i></button>
       </div>
     `
     )
     .join("");
 }
 
-// عرض تفاصيل الممثل في نافذة منبثقة
+// عرض تفاصيل الممثل في النافذة المنبثقة مع رسم إحصائيات
 function showDetails(id) {
   const actor = actorsData.find((a) => a.id === id);
   if (!actor) return;
 
+  // بيانات إحصائيات وهمية (ممكن تعدل في ملف JSON وتضيف الحقول دي)
+  const stats = {
+    "عدد الأفلام": actor.movies.length,
+    "سنوات النشاط": new Date().getFullYear() - new Date(actor.birthDate).getFullYear() - 20, // مثال
+    "عدد الجوائز": actor.awards || Math.floor(Math.random() * 10),
+  };
+
   modalBody.innerHTML = `
     <h2>${actor.name}</h2>
     <img src="${actor.image}" alt="${actor.name}" />
-    <p><strong>تاريخ الميلاد:</strong> ${actor.birthDate}</p>
-    <p>${actor.bio}</p>
+    <div class="info-line"><i class="fas fa-calendar-alt"></i> تاريخ الميلاد: ${actor.birthDate}</div>
+    <div class="info-line"><i class="fas fa-info-circle"></i> ${actor.bio}</div>
     <h3>أفلام:</h3>
     <ul class="movies-list">
       ${actor.movies.map((movie) => `<li>${movie}</li>`).join("")}
@@ -61,24 +69,75 @@ function showDetails(id) {
           </video>`
         : ""
     }
+    <div class="stats-container">
+      <h3><i class="fas fa-chart-bar"></i> إحصائيات الممثل</h3>
+      <canvas id="statsChart"></canvas>
+    </div>
   `;
 
   modal.classList.remove("hidden");
+
+  // إنشاء أو تحديث الرسم البياني
+  createOrUpdateChart(stats);
 }
 
-// إغلاق النافذة المنبثقة
+// دالة لإنشاء أو تحديث الرسم البياني
+function createOrUpdateChart(stats) {
+  const ctx = document.getElementById("statsChart").getContext("2d");
+  const labels = Object.keys(stats);
+  const data = Object.values(stats);
+
+  if (statsChart) {
+    statsChart.data.labels = labels;
+    statsChart.data.datasets[0].data = data;
+    statsChart.update();
+  } else {
+    statsChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "إحصائيات",
+            data: data,
+            backgroundColor: ["#4caf50", "#80e27e", "#388e3c"],
+            borderRadius: 6,
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true,
+            ticks: { color: "#eee" },
+            grid: { color: "#333" },
+          },
+          y: {
+            ticks: { color: "#eee" },
+            grid: { color: "#333" },
+          },
+        },
+        plugins: {
+          legend: { labels: { color: "#eee" } },
+          tooltip: { enabled: true },
+        },
+      },
+    });
+  }
+}
+
 closeModalBtn.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
 
-// إغلاق المودال عند الضغط خارج المحتوى
 modal.addEventListener("click", (e) => {
   if (e.target === modal) {
     modal.classList.add("hidden");
   }
 });
 
-// بحث حي حسب الاسم
 searchInput.addEventListener("input", () => {
   const searchTerm = searchInput.value.trim().toLowerCase();
   const filtered = actorsData.filter((actor) =>
@@ -87,5 +146,4 @@ searchInput.addEventListener("input", () => {
   displayActors(filtered);
 });
 
-// تحميل البيانات عند بداية الصفحة
 loadActors();
