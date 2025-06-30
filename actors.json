@@ -7,7 +7,13 @@
     "movies": ["Love on the Web", "Office Romance"],
     "image": "images/eva_elfie.jpg",
     "video": "videos/eva_elfie_intro.mp4",
-    "awards": 2
+    "awards": 2,
+    "website": "https://www.evaelfie.com",
+    "gallery": [
+      "images/eva_elfie1.jpg",
+      "images/eva_elfie2.jpg",
+      "images/eva_elfie3.jpg"
+    ]
   },
   {
     "id": "actor2",
@@ -17,16 +23,11 @@
     "movies": ["First Time Experience", "Summer Vibes"],
     "image": "images/mia_khalifa.jpg",
     "video": "",
-    "awards": 1
-  },
-  {
-    "id": "actor3",
-    "name": "Abella Danger",
-    "birthDate": "1995-11-19",
-    "bio": "Abella Danger ممثلة أفلام للكبار أمريكية شهيرة مع قاعدة جماهيرية كبيرة.",
-    "movies": ["New Beginnings", "Deep Secrets"],
-    "image": "images/abella_danger.jpg",
-    "video": "videos/abella_danger_intro.mp4",
-    "awards": 3
+    "awards": 1,
+    "website": "https://www.miaofficial.com",
+    "gallery": [
+      "images/mia_khalifa1.jpg",
+      "images/mia_khalifa2.jpg"
+    ]
   }
 ]
