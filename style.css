@@ -4,11 +4,11 @@
   margin: 0;
   padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50;
+  color: #d1d5db; /* رمادي فاتح للنص */
 }
 
 body {
-  background-color: #f7f9fc;
+  background-color: #121212; /* داكن جدًا */
   min-height: 100vh;
   padding: 40px 20px;
   display: flex;
@@ -28,7 +28,7 @@ header {
 header h1 {
   font-weight: 700;
   font-size: 2.8rem;
-  color: #34495e;
+  color: #60a5fa; /* أزرق فاتح */
   letter-spacing: 1.2px;
 }
 
@@ -37,15 +37,21 @@ header h1 {
   max-width: 420px;
   padding: 12px 18px;
   font-size: 1.1rem;
-  border: 1.8px solid #bdc3c7;
+  border: 1.8px solid #374151; /* رمادي غامق */
   border-radius: 8px;
+  background-color: #1f2937; /* خلفية داكنة للمدخل */
+  color: #d1d5db;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   outline-offset: 2px;
 }
 
+#searchInput::placeholder {
+  color: #9ca3af; /* رمادي فاتح */
+}
+
 #searchInput:focus {
-  border-color: #2980b9;
-  box-shadow: 0 0 6px rgba(41, 128, 185, 0.4);
+  border-color: #2563eb; /* أزرق */
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
   outline: none;
 }
 
@@ -57,10 +63,10 @@ header h1 {
 
 /* كرت الممثل */
 .actor-card {
-  background-color: #fff;
+  background-color: #1e293b; /* أزرق غامق جداً */
   border-radius: 12px;
   padding: 22px 18px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   cursor: pointer;
   display: flex;
@@ -69,7 +75,7 @@ header h1 {
 }
 
 .actor-card:hover {
-  box-shadow: 0 8px 18px rgba(41, 128, 185, 0.3);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
   transform: translateY(-6px);
 }
 
@@ -79,20 +85,20 @@ header h1 {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 18px;
-  border: 1px solid #d1d9e6;
+  border: 1px solid #334155; /* تدرج داكن */
 }
 
 .actor-card h3 {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: #60a5fa;
   margin-bottom: 12px;
   flex-grow: 0;
 }
 
 .actor-card p {
   flex-grow: 1;
-  color: #7f8c8d;
+  color: #cbd5e1;
   font-size: 1rem;
   line-height: 1.4;
   margin-bottom: 18px;
@@ -102,8 +108,8 @@ header h1 {
 }
 
 button.details-btn {
-  background-color: #2980b9;
-  color: #fff;
+  background-color: #2563eb;
+  color: #f9fafb;
   border: none;
   padding: 12px 0;
   font-size: 1rem;
@@ -115,14 +121,14 @@ button.details-btn {
 }
 
 button.details-btn:hover {
-  background-color: #1c5980;
+  background-color: #1d4ed8;
 }
 
 /* مودال */
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(44, 62, 80, 0.9);
+  background-color: rgba(17, 24, 39, 0.95); /* أسود شفاف */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -135,16 +141,16 @@ button.details-btn:hover {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #111827;
   max-width: 720px;
   width: 100%;
   border-radius: 14px;
   padding: 30px 35px;
-  color: #2c3e50;
+  color: #d1d5db;
   position: relative;
   max-height: 85vh;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
 }
 
 .close-btn {
@@ -153,19 +159,19 @@ button.details-btn:hover {
   left: 25px;
   font-size: 2.4rem;
   cursor: pointer;
-  color: #2980b9;
+  color: #60a5fa;
   transition: color 0.3s ease;
 }
 
 .close-btn:hover {
-  color: #1c5980;
+  color: #2563eb;
 }
 
 .modal-content h2 {
   margin-bottom: 22px;
   font-weight: 700;
   font-size: 2rem;
-  color: #34495e;
+  color: #93c5fd;
 }
 
 .modal-content img {
@@ -174,21 +180,21 @@ button.details-btn:hover {
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 28px;
-  border: 1px solid #d1d9e6;
+  border: 1px solid #334155;
 }
 
 .modal-content video {
   width: 100%;
   margin-top: 20px;
   border-radius: 10px;
-  border: 1px solid #d1d9e6;
+  border: 1px solid #334155;
 }
 
 /* قائمة الأفلام */
 .movies-list {
   margin-top: 24px;
   padding-left: 18px;
-  color: #34495e;
+  color: #cbd5e1;
   font-size: 1rem;
   font-weight: 600;
   list-style-type: disc;
