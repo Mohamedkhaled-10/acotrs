@@ -229,21 +229,21 @@ button.details-btn:hover {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 15px;
-  max-height: 160px; /* أو أي ارتفاع تريده */
-  overflow-y: auto; /* لو الصور كتير تقدر تعمل سكرول */
 }
 
 
+
 .gallery-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover; /* يملأ الحاوية */
+  width: 150px;
+  height: 180px; /* رفع الارتفاع عشان الصورة تظهر كاملة */
+  object-fit: contain; /* تحافظ على تناسق الصورة */
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
-  display: block;
+  background-color: #000; /* خلفية سوداء */
 }
+
 
 .gallery-img:hover {
   border-color: #2563eb;
