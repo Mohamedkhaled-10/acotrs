@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ملفات الممثلين</title>
+  
+  <!-- رابط Font Awesome للأيقونات -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  
+  <!-- ملف التنسيق -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,7 +22,7 @@
 
   <main id="actorsContainer"></main>
 
-  <!-- نافذة التفاصيل -->
+  <!-- نافذة التفاصيل (المودال) -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <span id="closeModal" class="close-btn">&times;</span>
@@ -22,6 +30,10 @@
     </div>
   </div>
 
+  <!-- سكريبت الرسم البياني Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- سكريبت الوظائف -->
   <script src="script.js"></script>
 </body>
 </html>
