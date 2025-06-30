@@ -81,12 +81,12 @@ header h1 {
 
 .actor-card img {
   width: 100%;
-  height: 180px;
-  object-fit: contain;
+  height: px;
+  object-fit: contain; /* تعديل هنا */
   border-radius: 10px;
   margin-bottom: 18px;
-  border: 1px solid #334155;
-  background-color: #000;
+  border: 1px solid #334155; /* تدرج داكن */
+  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
 }
 
 .actor-card h3 {
@@ -105,7 +105,7 @@ header h1 {
   margin-bottom: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 60px;
+  height: 60px; /* ثابت لتوحيد ارتفاع البطاقات */
 }
 
 button.details-btn {
@@ -129,7 +129,7 @@ button.details-btn:hover {
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.95);
+  background-color: rgba(17, 24, 39, 0.95); /* أسود شفاف */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,12 +177,12 @@ button.details-btn:hover {
 
 .modal-content img {
   width: 100%;
-  max-height: 320px;
-  object-fit: contain;
+  max-height: px;
+  object-fit: contain; /* تعديل هنا */
   border-radius: 10px;
   margin-bottom: 28px;
   border: 1px solid #334155;
-  background-color: #000;
+  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
 }
 
 .modal-content video {
@@ -214,19 +214,7 @@ button.details-btn:hover {
   }
   
   .actor-card img {
-    height: auto;
-    max-height: 180px;
-    width: 100%;
-  }
-  
-  .modal-content img {
-    max-height: 220px;
-    width: 100%;
-  }
-
-  .gallery-img {
-    width: 80px;
-    height: auto;
+    height: 160px;
   }
   
   .modal-content {
@@ -246,14 +234,21 @@ button.details-btn:hover {
 .gallery-img {
   width: 100px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain; /* تعديل هنا */
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
-  background-color: #000;
+  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
 }
 
 .gallery-img:hover {
   border-color: #2563eb;
 }
+element.style {
+    height: 50px;
+    width: fit-content;
+    vertical-align: middle;
+}
+---
+اريده مناسبا للهواتف
