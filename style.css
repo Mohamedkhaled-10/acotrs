@@ -81,12 +81,12 @@ header h1 {
 
 .actor-card img {
   width: 100%;
-  height: px;
-  object-fit: contain; /* تعديل هنا */
+  height: 180px;
+  object-fit: contain;
   border-radius: 10px;
   margin-bottom: 18px;
-  border: 1px solid #334155; /* تدرج داكن */
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  border: 1px solid #334155;
+  background-color: #000;
 }
 
 .actor-card h3 {
@@ -105,7 +105,7 @@ header h1 {
   margin-bottom: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 60px; /* ثابت لتوحيد ارتفاع البطاقات */
+  height: 60px;
 }
 
 button.details-btn {
@@ -129,7 +129,7 @@ button.details-btn:hover {
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.95); /* أسود شفاف */
+  background-color: rgba(17, 24, 39, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,12 +177,12 @@ button.details-btn:hover {
 
 .modal-content img {
   width: 100%;
-  max-height: px;
-  object-fit: contain; /* تعديل هنا */
+  max-height: 320px;
+  object-fit: contain;
   border-radius: 10px;
   margin-bottom: 28px;
   border: 1px solid #334155;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  background-color: #000;
 }
 
 .modal-content video {
@@ -214,7 +214,19 @@ button.details-btn:hover {
   }
   
   .actor-card img {
-    height: 160px;
+    height: auto;
+    max-height: 180px;
+    width: 100%;
+  }
+  
+  .modal-content img {
+    max-height: 220px;
+    width: 100%;
+  }
+
+  .gallery-img {
+    width: 80px;
+    height: auto;
   }
   
   .modal-content {
@@ -234,19 +246,14 @@ button.details-btn:hover {
 .gallery-img {
   width: 100px;
   height: auto;
-  object-fit: contain; /* تعديل هنا */
+  object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border-color 0.3s ease;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  background-color: #000;
 }
 
 .gallery-img:hover {
   border-color: #2563eb;
-}
-element.style {
-    height: 50px;
-    width: fit-content;
-    vertical-align: middle;
 }
