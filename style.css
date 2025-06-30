@@ -220,3 +220,23 @@ button.details-btn:hover {
     max-height: 90vh;
   }
 }
+.gallery {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.gallery-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.gallery-img:hover {
+  border-color: #2563eb;
+}
