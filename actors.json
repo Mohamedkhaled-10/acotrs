@@ -1,22 +1,32 @@
 [
   {
     "id": "actor1",
-    "name": "أحمد حلمي",
-    "birthDate": "1969-11-18",
-    "bio": "ممثل مصري مشهور بأدواره الكوميدية والدرامية.",
-    "movies": ["بلبل حيران", "ظرف طارق"],
-    "image": "images/ahmed_hamdy.jpg",
-    "video": "videos/ahmed_hamdy_intro.mp4",
-    "awards": 5
+    "name": "Eva Elfie",
+    "birthDate": "1999-05-27",
+    "bio": "Eva Elfie هي ممثلة أفلام للكبار روسية معروفة بجمالها وأدوارها المتنوعة في هذا المجال.",
+    "movies": ["Love on the Web", "Office Romance"],
+    "image": "images/eva_elfie.jpg",
+    "video": "videos/eva_elfie_intro.mp4",
+    "awards": 2
   },
   {
     "id": "actor2",
-    "name": "منى زكي",
-    "birthDate": "1976-11-18",
-    "bio": "ممثلة مصرية موهوبة قدمت العديد من الأفلام الناجحة.",
-    "movies": ["البحث عن فضيحة", "سيد العاطفي"],
-    "image": "images/menna_zaki.jpg",
+    "name": "Mia Khalifa",
+    "birthDate": "1993-02-10",
+    "bio": "Mia Khalifa هي شخصية إعلامية ولاعبة سابقة في أفلام للكبار، اشتهرت بسرعة في هذا المجال.",
+    "movies": ["First Time Experience", "Summer Vibes"],
+    "image": "images/mia_khalifa.jpg",
     "video": "",
+    "awards": 1
+  },
+  {
+    "id": "actor3",
+    "name": "Abella Danger",
+    "birthDate": "1995-11-19",
+    "bio": "Abella Danger ممثلة أفلام للكبار أمريكية شهيرة مع قاعدة جماهيرية كبيرة.",
+    "movies": ["New Beginnings", "Deep Secrets"],
+    "image": "images/abella_danger.jpg",
+    "video": "videos/abella_danger_intro.mp4",
     "awards": 3
   }
 ]
