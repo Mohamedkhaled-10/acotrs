@@ -52,7 +52,7 @@ function showDetails(id) {
     "عدد الجوائز": actor.awards || Math.floor(Math.random() * 10),
   };
 
-modalBody.innerHTML = `
+  modalBody.innerHTML = `
     <h2>${actor.name}</h2>
     <img src="${actor.image}" alt="${actor.name}" />
     <div class="info-line"><i class="fas fa-calendar-alt"></i> تاريخ الميلاد: ${actor.birthDate}</div>
