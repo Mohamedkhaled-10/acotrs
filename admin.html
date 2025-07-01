@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>صفحة تحكم الممثلات</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; }
+    label { display: block; margin-top: 10px; }
+    input, textarea { width: 100%; padding: 6px; }
+    button { margin-top: 15px; padding: 10px 15px; }
+    pre { background: #f4f4f4; padding: 10px; overflow-x: auto; max-height: 300px; }
+  </style>
+</head>
+<body>
+  <h1>إضافة ممثلة جديدة</h1>
+  <form id="actorForm">
+    <label>الرقم التعريفي (id):<input type="text" name="id" required /></label>
+    <label>الاسم:<input type="text" name="name" required /></label>
+    <label>تاريخ الميلاد:<input type="date" name="birthDate" required /></label>
+    <label>السيرة الذاتية (bio):<textarea name="bio" rows="3" required></textarea></label>
+    <label>الأفلام (مفصولة بفواصل):<input type="text" name="movies" /></label>
+    <label>رابط الصورة:<input type="text" name="image" required /></label>
+    <label>رابط الفيديو:<input type="text" name="video" /></label>
+    <label>عدد الجوائز:<input type="number" name="awards" min="0" value="0" /></label>
+    <label>رابط الموقع الرسمي:<input type="url" name="website" /></label>
+    <label>ألبوم الصور (روابط مفصولة بفواصل):<input type="text" name="gallery" /></label>
+    <label>مميزة (featured):<input type="checkbox" name="featured" /></label>
+
+    <button type="submit">إضافة إلى القائمة</button>
+  </form>
+
+  <h2>النص النهائي لملف JSON:</h2>
+  <pre id="output"></pre>
+
+  <script>
+    const actors = [
+      // لو عندك ممثلات موجودات تقدر تحطهم هنا كـ كائنات JS عشان يضاف الجديد عليهم
+    ];
+
+    const form = document.getElementById('actorForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const newActor = {
+        id: data.get('id'),
+        name: data.get('name'),
+        birthDate: data.get('birthDate'),
+        bio: data.get('bio'),
+        movies: data.get('movies') ? data.get('movies').split(',').map(m => m.trim()) : [],
+        image: data.get('image'),
+        video: data.get('video'),
+        awards: Number(data.get('awards')),
+        website: data.get('website'),
+        gallery: data.get('gallery') ? data.get('gallery').split(',').map(g => g.trim()) : [],
+        featured: data.get('featured') === 'on' ? true : false
+      };
+
+      actors.push(newActor);
+      output.textContent = JSON.stringify(actors, null, 2);
+
+      form.reset();
+      alert('تمت إضافة الممثلة. انسخ النص من الأسفل واستخدمه لتحديث ملف actors.json');
+    });
+  </script>
+</body>
+</html>
