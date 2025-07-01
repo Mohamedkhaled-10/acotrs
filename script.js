@@ -12,11 +12,25 @@ async function loadActors() {
   try {
     const response = await fetch("actors.json");
     actorsData = await response.json();
-    displayActors(actorsData);
+
+    displayFeaturedActors();
   } catch (error) {
     actorsContainer.innerHTML = "<p>خطأ في تحميل بيانات الممثلين.</p>";
     console.error(error);
   }
+}
+
+// عرض أبرز الممثلات فقط
+function displayFeaturedActors() {
+  // فلترتهم حسب الخاصية featured = true
+  let featured = actorsData.filter((actor) => actor.featured === true);
+
+  // لو مفيش حد محدد كـ featured، نعرض أول 6
+  if (featured.length === 0) {
+    featured = actorsData.slice(0, 6);
+  }
+
+  displayActors(featured);
 }
 
 // عرض قائمة الممثلين مع زر التفاصيل والمفضلة
@@ -162,7 +176,7 @@ function toggleFavorite(e, actorId) {
   }
 
   localStorage.setItem("favorites", JSON.stringify(favorites));
-  displayActors(actorsData);
+  displayFeaturedActors(); // عشان يعيد عرض الأبرز بعد التغيير
 }
 
 function isFavorite(actorId) {
