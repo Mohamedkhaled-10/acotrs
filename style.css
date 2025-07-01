@@ -287,15 +287,15 @@ button.details-btn:hover {
   }
 }
 
-/* Navbar أنيق */
+/* Modern Navbar */
 .navbar {
+  width: 100%;
+  padding: 16px 20px;
+  background: #0f172a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   position: sticky;
   top: 0;
-  width: 100%;
-  padding: 20px;
-  background: transparent;
-  backdrop-filter: blur(8px);
-  z-index: 20;
+  z-index: 1000;
 }
 
 .nav-container {
@@ -305,10 +305,11 @@ button.details-btn:hover {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
-.nav-left .logo {
-  font-size: 1.9rem;
+.nav-logo {
+  font-size: 1.8rem;
   font-weight: bold;
   color: #38bdf8;
   display: flex;
@@ -316,25 +317,18 @@ button.details-btn:hover {
   gap: 10px;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
 .nav-links {
+  list-style: none;
   display: flex;
   gap: 20px;
-  list-style: none;
   padding: 0;
   margin: 0;
 }
 
 .nav-links li a {
+  text-decoration: none;
   color: #f1f5f9;
   font-weight: 500;
-  text-decoration: none;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -345,7 +339,8 @@ button.details-btn:hover {
   color: #38bdf8;
 }
 
-#searchInput {
+/* Search Box inside Navbar */
+.nav-search input {
   padding: 10px 16px;
   border-radius: 12px;
   border: none;
@@ -354,15 +349,38 @@ button.details-btn:hover {
   font-size: 1rem;
   box-shadow: 0 0 0 2px #334155;
   transition: box-shadow 0.3s ease;
-  max-width: 280px;
+  max-width: 240px;
 }
 
-#searchInput::placeholder {
+.nav-search input::placeholder {
   color: #94a3b8;
 }
 
-#searchInput:focus {
+.nav-search input:focus {
   outline: none;
   box-shadow: 0 0 0 2px #38bdf8;
 }
 
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .nav-search input {
+    width: 90%;
+  }
+}
