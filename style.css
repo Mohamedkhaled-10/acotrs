@@ -7,6 +7,20 @@
   color: #f1f5f9;
 }
 
+/* الخلفية بلوجو شفاف */
+.background-logo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("logo.png") no-repeat center center;
+  background-size: 300px auto;
+  opacity: 0.04;
+  z-index: 0;
+  pointer-events: none;
+}
+
 body {
   background-color: #0f172a;
   min-height: 100vh;
@@ -18,6 +32,8 @@ body {
 .container {
   max-width: 1200px;
   width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 /* Header */
@@ -192,17 +208,16 @@ button.details-btn:hover {
 
 .modal-content img {
   display: block;
-  margin: 0 auto 24px auto; /* توسيط الصورة أفقياً مع مسافة من الأسفل */
-  max-width: 100%;           /* ما تزيدش عن عرض العنصر الحاوي */
-  max-height: none;         /* ارتفاع أقصى واضح */
+  margin: 0 auto 24px auto;
+  max-width: 100%;
+  max-height: none;
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 12px;       /* حواف ناعمة */
+  border-radius: 12px;
   background-color: transparent;
   border: none;
 }
-
 
 .modal-content video {
   width: 100%;
