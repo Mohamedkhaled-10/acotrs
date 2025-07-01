@@ -19,7 +19,7 @@ async function loadActors() {
   }
 }
 
-// عرض قائمة الممثلين مع أيقونة نجمة أمام الاسم
+// عرض قائمة الممثلين مع زر التفاصيل والمفضلة
 function displayActors(actors) {
   if (actors.length === 0) {
     actorsContainer.innerHTML = "<p>لم يتم العثور على ممثلين.</p>";
@@ -29,11 +29,18 @@ function displayActors(actors) {
   actorsContainer.innerHTML = actors
     .map(
       (actor) => `
-      <div class="actor-card" onclick="showDetails('${actor.id}')">
+      <div class="actor-card">
         <img src="${actor.image}" alt="${actor.name}" />
         <h3><i class="fas fa-user"></i> ${actor.name}</h3>
         <p>${actor.bio}</p>
-        <button class="details-btn">التفاصيل <i class="fas fa-arrow-left"></i></button>
+        <div class="actor-actions">
+          <button class="details-btn" onclick="showDetails('${actor.id}')">
+            التفاصيل <i class="fas fa-arrow-left"></i>
+          </button>
+          <button class="fav-btn" onclick="toggleFavorite(event, '${actor.id}')">
+            ${isFavorite(actor.id) ? "✔️ في المفضلة" : "⭐ أضف للمفضلة"}
+          </button>
+        </div>
       </div>
     `
     )
@@ -45,10 +52,9 @@ function showDetails(id) {
   const actor = actorsData.find((a) => a.id === id);
   if (!actor) return;
 
-  // بيانات إحصائيات وهمية (ممكن تعدل في ملف JSON وتضيف الحقول دي)
   const stats = {
     "عدد الأفلام": actor.movies.length,
-    "سنوات النشاط": new Date().getFullYear() - new Date(actor.birthDate).getFullYear() - 20, // مثال
+    "سنوات النشاط": new Date().getFullYear() - new Date(actor.birthDate).getFullYear() - 20,
     "عدد الجوائز": actor.awards || Math.floor(Math.random() * 10),
   };
 
@@ -71,28 +77,21 @@ function showDetails(id) {
     }
     <p>عدد الجوائز: ${actor.awards}</p>
     ${
-  actor.website
-    ? `<p>رابط الموقع الرسمي: 
-         <a href="${actor.website}" target="_blank" rel="noopener" title="الموقع الرسمي">
-           <img src="Logo_of_Pornhub.png" alt="Logo" style="height:150px; vertical-align:middle;" />
-         </a>
-       </p>`
-    : ""
-}
-
+      actor.website
+        ? `<p>رابط الموقع الرسمي: 
+             <a href="${actor.website}" target="_blank" rel="noopener" title="الموقع الرسمي">
+               <img src="Logo_of_Pornhub.png" alt="Logo" style="height:150px; vertical-align:middle;" />
+             </a>
+           </p>`
+        : ""
+    }
     ${
       actor.gallery && actor.gallery.length > 0
         ? `
       <h3>ألبوم الصور:</h3>
       <div class="gallery">
-        ${actor.gallery
-          .map(
-            (img) =>
-              `<img src="${img}" alt="${actor.name}" class="gallery-img" />`
-          )
-          .join("")}
-      </div>
-    `
+        ${actor.gallery.map((img) => `<img src="${img}" alt="${actor.name}" class="gallery-img" />`).join("")}
+      </div>`
         : ""
     }
     <div class="stats-container">
@@ -102,7 +101,6 @@ function showDetails(id) {
   `;
 
   modal.classList.remove("hidden");
-
   createOrUpdateChart(stats);
 }
 
@@ -151,6 +149,25 @@ function createOrUpdateChart(stats) {
       },
     });
   }
+}
+
+function toggleFavorite(e, actorId) {
+  e.stopPropagation();
+  let favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+
+  if (favorites.includes(actorId)) {
+    favorites = favorites.filter((id) => id !== actorId);
+  } else {
+    favorites.push(actorId);
+  }
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  displayActors(actorsData);
+}
+
+function isFavorite(actorId) {
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+  return favorites.includes(actorId);
 }
 
 closeModalBtn.addEventListener("click", () => {
