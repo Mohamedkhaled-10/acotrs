@@ -108,5 +108,26 @@
     "RileyReid/riley4.jpg"
   ],
   "featured": true
-}
+},
+   {
+    "id": "actor7",
+    "name": "Emily Will",
+    "birthDate": "1998-12-29",
+    "bio": "إميلي ويلس بدأت مشوارها في صناعة الأفلام الجريئة وهي في سن صغيرة، وتعرف بجمالها الطبيعي وحضورها الحيوي والشبابي. تُعتبر واحدة من النجوم الصاعدة في المجال.",
+    "movies": [
+      "Sunset Lovers",
+      "Pure 18",
+      "Young and Hungry"
+    ],
+    "image": "EmilyWillis.png",
+    "video": "",
+    "awards": 4,
+    "website": "https://www.pornhub.com/pornstar/emily-willis",
+    "gallery": [
+      "EmilyWillis/willis1.jpg",
+      "EmilyWillis/willis2.jpg",
+      "EmilyWillis/willis3.jpg"
+    ],
+    "featured": false
+  }
 ]
