@@ -14,15 +14,11 @@
   background: 
     linear-gradient(to bottom, rgba(15, 23, 42, 0) 30%, #0f172a 100%),
     url("icons/logo.png") no-repeat center center;
-  background-size: 200vmin auto;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-size: cover;
   opacity: 0.06;
   pointer-events: none;
   z-index: 0;
 }
-
-
 
 body {
   background-color: #0f172a;
@@ -43,13 +39,7 @@ body {
 header {
   text-align: center;
   margin-bottom: 40px;
-}
-
-header h1 {
-  font-weight: 800;
-  font-size: 3rem;
-  color: #38bdf8;
-  letter-spacing: 1px;
+  display: none; /* تم إخفاؤه كما طلبت */
 }
 
 /* Search */
@@ -275,26 +265,14 @@ button.details-btn:hover {
   box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  .modal-content {
-    padding: 20px;
-    max-height: 90vh;
-  }
-
-  .actor-card img {
-    height: auto;
-  }
-}
-
 /* Navbar Styling */
 .navbar {
-  background: #0f172a;
+  background: transparent;
   padding: 14px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(12px);
 }
 
 .nav-container {
@@ -303,6 +281,8 @@ button.details-btn:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .nav-logo {
@@ -328,6 +308,7 @@ button.details-btn:hover {
   align-items: center;
   gap: 20px;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .nav-links li a {
@@ -344,10 +325,6 @@ button.details-btn:hover {
   color: #38bdf8;
 }
 
-.nav-links .nav-search {
-  display: block;
-}
-
 .nav-search input {
   padding: 10px 16px;
   border-radius: 10px;
@@ -360,14 +337,9 @@ button.details-btn:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-search {
-    width: 100%;
+  .nav-toggle {
+    display: block;
   }
-  .nav-search input {
-    width: 100%;
-  }
-}
-
 
   .nav-links {
     position: absolute;
@@ -393,20 +365,22 @@ button.details-btn:hover {
     margin-bottom: 14px;
   }
 
-  .nav-search-mobile {
-    display: block;
+  .nav-search {
     width: 100%;
   }
 
-  .nav-search-mobile input {
+  .nav-search input {
     width: 100%;
-    padding: 10px 16px;
-    border-radius: 10px;
-    border: none;
-    background-color: #0f172a;
-    color: #f1f5f9;
-    font-size: 1rem;
-    box-shadow: 0 0 0 2px #334155;
   }
 }
 
+@media (max-width: 700px) {
+  .modal-content {
+    padding: 20px;
+    max-height: 90vh;
+  }
+
+  .actor-card img {
+    height: auto;
+  }
+}
