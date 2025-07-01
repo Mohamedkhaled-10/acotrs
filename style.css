@@ -194,7 +194,7 @@ button.details-btn:hover {
   display: block;
   margin: 0 auto 24px auto; /* توسيط الصورة أفقياً مع مسافة من الأسفل */
   max-width: 100%;           /* ما تزيدش عن عرض العنصر الحاوي */
-  max-height: 400px;         /* ارتفاع أقصى واضح */
+  max-height: none;         /* ارتفاع أقصى واضح */
   width: auto;
   height: auto;
   object-fit: contain;
