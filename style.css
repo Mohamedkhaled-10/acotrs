@@ -1,14 +1,14 @@
-/* Reset أساسي */
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #d1d5db; /* رمادي فاتح للنص */
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #f1f5f9;
 }
 
 body {
-  background-color: #121212; /* داكن جدًا */
+  background-color: #0f172a;
   min-height: 100vh;
   padding: 40px 20px;
   display: flex;
@@ -16,124 +16,117 @@ body {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   width: 100%;
 }
 
+/* Header */
 header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 header h1 {
-  font-weight: 700;
-  font-size: 2.8rem;
-  color: #60a5fa; /* أزرق فاتح */
-  letter-spacing: 1.2px;
+  font-weight: 800;
+  font-size: 3rem;
+  color: #38bdf8;
+  letter-spacing: 1px;
 }
 
+/* Search */
 #searchInput {
   width: 100%;
-  max-width: 420px;
-  padding: 12px 18px;
+  max-width: 460px;
+  padding: 14px 20px;
   font-size: 1.1rem;
-  border: 1.8px solid #374151; /* رمادي غامق */
-  border-radius: 8px;
-  background-color: #1f2937; /* خلفية داكنة للمدخل */
-  color: #d1d5db;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  outline-offset: 2px;
+  border: none;
+  border-radius: 12px;
+  background-color: #1e293b;
+  color: #f1f5f9;
+  box-shadow: 0 0 0 2px #334155;
+  transition: box-shadow 0.3s ease;
 }
 
 #searchInput::placeholder {
-  color: #9ca3af; /* رمادي فاتح */
+  color: #94a3b8;
 }
 
 #searchInput:focus {
-  border-color: #2563eb; /* أزرق */
-  box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
   outline: none;
+  box-shadow: 0 0 0 2px #38bdf8;
 }
 
+/* Actor Cards */
 #actorsContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
 }
 
-/* كرت الممثل */
 .actor-card {
-  background-color: #1e293b; /* أزرق غامق جداً */
-  border-radius: 12px;
-  padding: 22px 18px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
+  background: linear-gradient(to bottom right, #1e293b, #111827);
+  border-radius: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #334155;
 }
 
 .actor-card:hover {
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
   transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
 }
 
 .actor-card img {
   width: 100%;
-  height: px;
-  object-fit: contain; /* تعديل هنا */
-  border-radius: 10px;
-  margin-bottom: 18px;
-  border: 1px solid #334155; /* تدرج داكن */
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  background-color: #000;
 }
 
 .actor-card h3 {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #60a5fa;
-  margin-bottom: 12px;
-  flex-grow: 0;
+  color: #38bdf8;
+  margin-bottom: 8px;
 }
 
 .actor-card p {
-  flex-grow: 1;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: #cbd5e1;
-  font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 18px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  height: 60px; /* ثابت لتوحيد ارتفاع البطاقات */
+  margin-bottom: 16px;
+  flex-grow: 1;
 }
 
+/* Button */
 button.details-btn {
-  background-color: #2563eb;
-  color: #f9fafb;
+  background: linear-gradient(to right, #38bdf8, #7c3aed);
   border: none;
-  padding: 12px 0;
-  font-size: 1rem;
+  color: #fff;
+  padding: 12px;
+  border-radius: 10px;
   font-weight: 600;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  letter-spacing: 0.05em;
+  font-size: 1rem;
+  transition: background 0.3s ease;
 }
 
 button.details-btn:hover {
-  background-color: #1d4ed8;
+  background: linear-gradient(to right, #0ea5e9, #6d28d9);
 }
 
-/* مودال */
+/* Modal */
 .modal {
   position: fixed;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.95); /* أسود شفاف */
+  background-color: rgba(15, 23, 42, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 10000;
   padding: 20px;
 }
 
@@ -142,113 +135,101 @@ button.details-btn:hover {
 }
 
 .modal-content {
-  background-color: #111827;
+  background-color: #1e293b;
+  padding: 30px;
+  border-radius: 18px;
   max-width: 720px;
   width: 100%;
-  border-radius: 14px;
-  padding: 30px 35px;
-  color: #d1d5db;
   position: relative;
-  max-height: 85vh;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+  max-height: 90vh;
 }
 
 .close-btn {
   position: absolute;
-  top: 18px;
+  top: 20px;
   left: 25px;
-  font-size: 2.4rem;
+  font-size: 2rem;
+  color: #38bdf8;
   cursor: pointer;
-  color: #60a5fa;
-  transition: color 0.3s ease;
-}
-
-.close-btn:hover {
-  color: #2563eb;
 }
 
 .modal-content h2 {
-  margin-bottom: 22px;
-  font-weight: 700;
   font-size: 2rem;
-  color: #93c5fd;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 20px;
 }
 
 .modal-content img {
   width: 100%;
-  max-height: px;
-  object-fit: contain; /* تعديل هنا */
-  border-radius: 10px;
-  margin-bottom: 28px;
-  border: 1px solid #334155;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background-color: #000;
 }
 
 .modal-content video {
   width: 100%;
-  margin-top: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #334155;
+  margin-top: 20px;
 }
 
-/* قائمة الأفلام */
+/* Movie List */
 .movies-list {
-  margin-top: 24px;
-  padding-left: 18px;
-  color: #cbd5e1;
-  font-size: 1rem;
-  font-weight: 600;
-  list-style-type: disc;
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
 }
 
 .movies-list li {
+  position: relative;
+  padding-left: 18px;
   margin-bottom: 10px;
-  line-height: 1.5;
+  color: #e2e8f0;
+  font-weight: 500;
 }
 
-/* Responsive */
-@media (max-width: 700px) {
-  #actorsContainer {
-    grid-template-columns: 1fr;
-  }
-  
-  .actor-card img {
-    height: 160px;
-  }
-  
-  .modal-content {
-    padding: 20px 25px;
-    max-height: 90vh;
-  }
+.movies-list li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  color: #38bdf8;
 }
 
-/* ألبوم الصور */
+/* Gallery */
 .gallery {
   display: flex;
-  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 15px;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .gallery-img {
   width: 100px;
-  height: auto;
-  object-fit: contain; /* تعديل هنا */
-  border-radius: 8px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
-  background-color: #000; /* خلفية سوداء لتجنب الفراغات */
+  transition: transform 0.3s ease;
 }
 
 .gallery-img:hover {
-  border-color: #2563eb;
+  transform: scale(1.05);
 }
-element.style {
-    height: 50px;
-    width: fit-content;
-    vertical-align: middle;
+
+/* Responsive */
+@media (max-width: 700px) {
+  .modal-content {
+    padding: 20px;
+    max-height: 90vh;
+  }
+
+  .actor-card img {
+    height: 160px;
+  }
 }
----
-اريده مناسبا للهواتف
