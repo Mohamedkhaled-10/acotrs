@@ -74,7 +74,7 @@ function showDetails(id) {
   actor.website
     ? `<p>رابط الموقع الرسمي: 
          <a href="${actor.website}" target="_blank" rel="noopener" title="الموقع الرسمي">
-           <img src="images/Logo_of_Pornhub.png" alt="Logo" style="height:24px; vertical-align:middle;" />
+           <img src="Logo_of_Pornhub.png" alt="Logo" style="height:24px; vertical-align:middle;" />
          </a>
        </p>`
     : ""
