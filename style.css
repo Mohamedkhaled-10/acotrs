@@ -81,6 +81,7 @@ header h1 {
 
 .actor-card img {
   width: 100%;
+  height: auto;
   object-fit: contain;
   border-radius: 16px;
   margin-bottom: 18px;
@@ -191,6 +192,7 @@ button.details-btn:hover {
 
 .modal-content img {
   width: 100%;
+  max-height: fit-content;
   object-fit: contain;
   border-radius: 12px;
   margin-bottom: 24px;
