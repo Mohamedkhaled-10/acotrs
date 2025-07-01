@@ -119,65 +119,105 @@ button.details-btn:hover {
 }
 
 /* Modal */
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(15, 23, 42, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-  padding: 20px;
-}
-
-.hidden {
-  display: none;
-}
-
 .modal-content {
   background-color: #1e293b;
-  padding: 30px;
+  padding: 0;
   border-radius: 18px;
-  max-width: 720px;
+  max-width: 820px;
   width: 100%;
-  position: relative;
   border: 1px solid #334155;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-  overflow-y: auto;
-  max-height: 90vh;
+  overflow: hidden;
+}
+
+.modal-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.media, .info {
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.media {
+  flex: 1;
+  min-width: 300px;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media img, .media video {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 14px;
+  border: 1px solid #334155;
+}
+
+.info {
+  flex: 1;
+  min-width: 300px;
+  background-color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.info h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #60a5fa;
+  margin-bottom: 12px;
+}
+
+.info .bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #cbd5e1;
+}
+
+.movies-list li {
+  margin-bottom: 8px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 500;
+}
+
+.movies-list li::before {
+  content: "🎬 ";
+  color: #38bdf8;
 }
 
 .close-btn {
   position: absolute;
-  top: 20px;
-  left: 25px;
+  top: 16px;
+  right: 20px;
   font-size: 2rem;
   color: #38bdf8;
   cursor: pointer;
+  z-index: 10;
 }
 
-.modal-content h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #60a5fa;
-  margin-bottom: 20px;
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-grid {
+    flex-direction: column;
+  }
+
+  .media, .info {
+    padding: 16px;
+  }
+
+  .media img, .media video {
+    max-height: 250px;
+  }
 }
 
-.modal-content img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 12px;
-  margin-bottom: 24px;
-  background-color: #000;
-}
-
-.modal-content video {
-  width: 100%;
-  border-radius: 12px;
-  border: 1px solid #334155;
-  margin-top: 20px;
-}
 
 /* Movie List */
 .movies-list {
