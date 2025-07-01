@@ -61,7 +61,6 @@ modalBody.innerHTML = `
   <ul class="movies-list">
     ${actor.movies.map((movie) => `<li>${movie}</li>`).join("")}
   </ul>
-`;
 
     ${
       actor.video
