@@ -344,15 +344,30 @@ button.details-btn:hover {
   color: #38bdf8;
 }
 
-.nav-links .nav-search-mobile {
-  display: none;
+.nav-links .nav-search {
+  display: block;
+}
+
+.nav-search input {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #0f172a;
+  color: #f1f5f9;
+  font-size: 1rem;
+  box-shadow: 0 0 0 2px #334155;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
+  .nav-search {
+    width: 100%;
   }
+  .nav-search input {
+    width: 100%;
+  }
+}
+
 
   .nav-links {
     position: absolute;
