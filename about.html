@@ -3,21 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FemmeFiles - حول</title>
+  <title>FemmeFiles - حول | About</title>
   
-  <!-- رابط Font Awesome للأيقونات -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
   />
   
-  <!-- ملف التنسيق -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
   <link rel="manifest" href="icons/site.webmanifest">
+  
+  <style>
+    main {
+      color: #cbd5e1;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    .en-text {
+      direction: ltr;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #94a3b8;
+      font-size: 1rem;
+      margin-top: 0.3rem;
+    }
+    a.contact-link {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a.contact-link:hover {
+      text-decoration: underline;
+    }
+  </style>
   
 </head>
 <body>
@@ -29,7 +57,7 @@
       <div class="nav-container">
         <div class="nav-logo">
           <i class="fas fa-film"></i>
-          <span>حول</span>
+          <span>حول | About</span>
         </div>
 
         <button class="nav-toggle" id="menuToggle">
@@ -42,7 +70,6 @@
           <li><a href="favorites.html"><i class="fas fa-star"></i> المفضلة</a></li>
           <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> حول</a></li>
           <li class="nav-search" style="display:none;">
-            <!-- اخفاء شريط البحث في صفحة حول -->
             <input type="text" id="searchInput" placeholder="ابحث عن ممثلة..." />
           </li>
         </ul>
@@ -50,22 +77,45 @@
     </nav>
 
     <header>
-      <h1>عن FemmeFiles</h1>
+      <h1 style="text-align:center; margin-bottom: 2rem;">عن FemmeFiles | About FemmeFiles</h1>
     </header>
 
     <main>
-      <section class="about-content" style="color:#cbd5e1; font-size:1.2rem; line-height:1.8;">
+      <section>
         <p>
-          مرحباً بك في موقع FemmeFiles، موقع مخصص لعرض ملفات الممثلات بمعلومات شاملة وصور وفيديوهات.
+          FemmeFiles هو موقع معلوماتي متخصص في تقديم ملفات شاملة عن ممثلات الأفلام للكبار، مع التركيز على توفير معلومات دقيقة وموثوقة، صور، وفيديوهات.
         </p>
-        <p>
-          هدفنا هو توفير منصة سهلة الاستخدام تتيح لك تصفح واكتشاف معلومات عن أشهر الممثلات، بالإضافة إلى إمكانية إضافة المفضلة ومتابعتها بسهولة.
+        <p class="en-text">
+          FemmeFiles is an informational website specializing in providing comprehensive profiles of adult film actresses, focusing on accurate and reliable information, photos, and videos.
         </p>
+      </section>
+
+      <section>
         <p>
-          هذا الموقع تم تطويره باستخدام تقنيات حديثة مثل HTML، CSS، وجافاسكريبت، مع استخدام مكتبة Chart.js لعرض الإحصائيات بشكل تفاعلي وجذاب.
+          هدفنا هو تقديم منصة آمنة وموثوقة تتيح للمستخدمين استكشاف ومتابعة أخبار ومحتوى الممثلات بطريقة محترمة ومهنية.
         </p>
+        <p class="en-text">
+          Our goal is to provide a safe and reliable platform allowing users to explore and follow news and content about actresses in a respectful and professional manner.
+        </p>
+      </section>
+
+      <section>
         <p>
-          لأي استفسار أو اقتراح، يمكنك التواصل معنا عبر البريد الإلكتروني: <a href="mailto:contact@femmefiles.com" style="color:#38bdf8;">contact@femmefiles.com</a>
+          الموقع لا يروج أو يشجع على أي نشاطات غير قانونية أو غير أخلاقية، وهو مخصص للأشخاص البالغين فقط.
+        </p>
+        <p class="en-text">
+          The site does not promote or endorse any illegal or unethical activities and is intended for adults only.
+        </p>
+      </section>
+
+      <section>
+        <p>
+          لأي استفسار أو تعاون، يمكنكم التواصل معنا عبر البريد الإلكتروني:
+          <a href="mailto:contact@femmefiles.com" class="contact-link">contact@femmefiles.com</a>
+        </p>
+        <p class="en-text">
+          For inquiries or collaborations, please contact us at:
+          <a href="mailto:contact@femmefiles.com" class="contact-link">contact@femmefiles.com</a>
         </p>
       </section>
     </main>
