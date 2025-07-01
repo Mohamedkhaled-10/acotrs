@@ -286,34 +286,45 @@ button.details-btn:hover {
   }
 }
 
+/* Navbar شفاف وراقي */
 .navbar {
-  background-color: #1e293b;
-  padding: 16px 20px;
+  background: transparent;
+  padding: 20px;
+  width: 100%;
   position: sticky;
   top: 0;
-  width: 100%;
   z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* اللوجو */
 .logo {
   font-size: 1.8rem;
   font-weight: 800;
   color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
+/* الروابط */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-links li a {
@@ -321,10 +332,36 @@ button.details-btn:hover {
   color: #cbd5e1;
   font-weight: 500;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
   transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: #38bdf8;
+}
+
+/* البحث داخل شريط التنقل */
+.nav-container #searchInput {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background-color: #1e293b;
+  color: #f1f5f9;
+  font-size: 1rem;
+  box-shadow: 0 0 0 2px #334155;
+  transition: box-shadow 0.3s ease;
+  max-width: 280px;
+  flex-shrink: 0;
+}
+
+.nav-container #searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.nav-container #searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #38bdf8;
 }
 
