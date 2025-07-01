@@ -191,6 +191,8 @@ button.details-btn:hover {
 }
 
 .modal-content img {
+  display: block;
+  margin: 0 auto 24px auto;
   width: auto;
   max-height: fit-content;
   object-fit: contain;
