@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة تحكم الممثلات</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, textarea { display: block; margin-bottom: 10px; width: 100%; padding: 10px; }
+    button { padding: 10px 20px; }
+  </style>
+</head>
+<body>
+
+  <h2>إضافة ممثلة جديدة</h2>
+
+  <input type="text" id="name" placeholder="اسم الممثلة" />
+  <input type="date" id="birthDate" placeholder="تاريخ الميلاد" />
+  <textarea id="bio" placeholder="السيرة الذاتية"></textarea>
+  <input type="text" id="image" placeholder="رابط الصورة" />
+  <input type="text" id="video" placeholder="رابط الفيديو" />
+  <input type="text" id="website" placeholder="رابط الموقع الرسمي" />
+  <input type="number" id="awards" placeholder="عدد الجوائز" />
+  <input type="text" id="movies" placeholder="أفلام (مفصولة بفاصلة)" />
+  <input type="text" id="gallery" placeholder="روابط المعرض (بفاصلة)" />
+  <label><input type="checkbox" id="featured" /> مميزة؟</label>
+
+  <button onclick="addActor()">أضف الممثلة</button>
+
+  <!-- Firebase -->
+  <script type="module">
+  // استيراد الحزم المطلوبة
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  // إعدادات Firebase الخاصة بمشروعك
+  const firebaseConfig = {
+    apiKey: "AIzaSyDHdytx9Zicc4gi92fJz6b3IPnrAweLLp0",
+    authDomain: "actor-d244f.firebaseapp.com",
+    projectId: "actor-d244f",
+    storageBucket: "actor-d244f.firebasestorage.app",
+    messagingSenderId: "163741303451",
+    appId: "1:163741303451:web:10bde58d517cb15c94bc3e",
+    measurementId: "G-WNGKV3EVQK"
+  };
+
+  // تهيئة Firebase و Firestore
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // دالة لإضافة ممثلة (مثال)
+  window.addActor = async function () {
+    const name = document.getElementById("name").value;
+    const birthDate = document.getElementById("birthDate").value;
+    const bio = document.getElementById("bio").value;
+    const image = document.getElementById("image").value;
+    const video = document.getElementById("video").value;
+    const website = document.getElementById("website").value;
+    const awards = parseInt(document.getElementById("awards").value);
+    const movies = document.getElementById("movies").value.split(",");
+    const gallery = document.getElementById("gallery").value.split(",");
+    const featured = document.getElementById("featured").checked;
+
+    try {
+      await addDoc(collection(db, "actors"), {
+        name,
+        birthDate,
+        bio,
+        image,
+        video,
+        website,
+        awards,
+        movies,
+        gallery,
+        featured
+      });
+
+      alert("تمت إضافة الممثلة بنجاح!");
+      document.querySelectorAll("input, textarea").forEach(el => el.value = "");
+      document.getElementById("featured").checked = false;
+
+    } catch (error) {
+      console.error("خطأ في الإضافة:", error);
+      alert("حدث خطأ أثناء الإضافة.");
+    }
+  };
+</script>
+</body>
+</html>
