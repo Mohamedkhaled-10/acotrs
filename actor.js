@@ -17,33 +17,73 @@ const db = getFirestore(app);
 
 const actorsContainer = document.getElementById("actorsContainer");
 
+let visibleActors = [];
+let lockedActors = [];
+
 // دالة لجلب الممثلات من Firebase
 async function fetchActors() {
   const querySnapshot = await getDocs(collection(db, "actors"));
+  let allActors = [];
+
   querySnapshot.forEach((doc) => {
     const actor = doc.data();
-    renderActorCard(actor);
+    allActors.push(actor);
+  });
+
+  // قسمهم حسب السيريال
+  visibleActors = allActors.filter((a, i) => !a.serial && i < 3);
+  lockedActors = allActors.filter((a) => a.serial);
+
+  displayActors(visibleActors);
+  showSerialInput();
+}
+
+// عرض الكروت
+function displayActors(list) {
+  actorsContainer.innerHTML = "";
+
+  list.forEach(actor => {
+    const card = document.createElement("div");
+    card.className = "actor-card";
+
+    card.innerHTML = `
+      <img src="${actor.image}" alt="${actor.name}" class="actor-image"/>
+      <h3>${actor.name}</h3>
+      <p><strong>تاريخ الميلاد:</strong> ${actor.birthDate}</p>
+      <p><strong>الجوائز:</strong> ${actor.awards}</p>
+      <p><strong>أفلام:</strong> ${actor.movies.join(", ")}</p>
+      <button onclick='showModal(${JSON.stringify(actor)})'>عرض التفاصيل</button>
+    `;
+
+    actorsContainer.appendChild(card);
   });
 }
 
-// دالة لعرض كل ممثلة
-function renderActorCard(actor) {
-  const card = document.createElement("div");
-  card.className = "actor-card";
-
-  card.innerHTML = `
-    <img src="${actor.image}" alt="${actor.name}" class="actor-image"/>
-    <h3>${actor.name}</h3>
-    <p><strong>تاريخ الميلاد:</strong> ${actor.birthDate}</p>
-    <p><strong>الجوائز:</strong> ${actor.awards}</p>
-    <p><strong>أفلام:</strong> ${actor.movies.join(", ")}</p>
-    <button onclick='showModal(${JSON.stringify(actor)})'>عرض التفاصيل</button>
+// إظهار خانة السيريال
+function showSerialInput() {
+  const serialBox = document.createElement("div");
+  serialBox.className = "serial-box";
+  serialBox.innerHTML = `
+    <input type="text" id="serialInput" placeholder="ادخل السيريال لفتح ممثلة مخفية" />
+    <button id="unlockBtn">فتح</button>
   `;
+  actorsContainer.appendChild(serialBox);
 
-  actorsContainer.appendChild(card);
+  document.getElementById("unlockBtn").addEventListener("click", () => {
+    const code = document.getElementById("serialInput").value.trim();
+    const found = lockedActors.find((a) => a.serial === code);
+
+    if (found && !visibleActors.some((a) => a.name === found.name)) {
+      visibleActors.push(found);
+      displayActors(visibleActors);
+      showSerialInput(); // إعادة زر السيريال
+    } else {
+      alert("❌ السيريال غير صحيح أو هذه الممثلة معروضة بالفعل.");
+    }
+  });
 }
 
-// دالة فتح المودال
+// المودال
 window.showModal = function(actor) {
   const modal = document.getElementById("modal");
   const modalBody = document.getElementById("modalBody");
@@ -58,12 +98,10 @@ window.showModal = function(actor) {
       ${actor.gallery.map(img => `<img src="${img}" class="gallery-img" />`).join("")}
     </div>
   `;
-}
+};
 
-// إغلاق المودال
 document.getElementById("closeModal").onclick = () => {
   document.getElementById("modal").classList.add("hidden");
 };
 
-// بدء التنفيذ
 fetchActors();
