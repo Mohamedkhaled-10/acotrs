@@ -409,3 +409,24 @@ button.details-btn:hover {
   color: #0f172a;
   transform: scale(1.03);
 }
+.serial-box {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.serial-box input {
+  padding: 10px;
+  width: 250px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 10px;
+}
+
+.serial-box button {
+  padding: 10px 20px;
+  background-color: #f90;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
